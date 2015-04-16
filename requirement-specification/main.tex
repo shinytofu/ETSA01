@@ -17,6 +17,7 @@
 This document describes the requirements and functionalities of the "Bicycle Garage Pro" (BGP) software.
 
 The intended audience of this document are mainly: software developers, in order to aid the development of the software; and clients, in order to provide an accurate overview of the project.
+
 \subsection{Glossary}
 \begin{enumerate}
 	\item Business-related terms
@@ -53,8 +54,20 @@ The hardware, as stated above, will be accessed by the system according to a pre
 ACME is a company that works in the bicycle garage business. ACME aims to provide low-cost, semi-automated bicycle garage solutions for public use.
 \subsubsection{Product goals}
 The goal of BGP is to assist in managing a bicycle garage by keeping track of users and their bicycles. The user interface should be simple to use and the software should be easily maintainable for future developers.
+
 \subsection{Overview}
+The structure of this specification is based on guidelines from the ETSA01 course website and the ETSA01 course compendium \cite{kompendium,course-site}.
 
+\section{Product description}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{./assets/context-hw.png}
+	\caption{Context diagram for BGP}
+	\label{fig:context-hw}
+\end{figure}
 
+The interactions between the system and external entities, that may interact with the system, can be seen in \cref{fig:context-hw}.
+\bibliography{bibliography}{}
+\bibliographystyle{plain}
 \include{appendix}
 \end{document}

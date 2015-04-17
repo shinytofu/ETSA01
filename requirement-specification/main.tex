@@ -19,7 +19,7 @@ This document describes the requirements and functionalities of the "Bicycle Gar
 The intended audience of this document are mainly: software developers, in order to aid the development of the software; and clients, in order to provide an accurate overview of the project.
 
 \subsection{Glossary}
-Despite this being a software-only specification, relevant hardware-related terms are still mentioned for convenience sake.
+Despite this being a software-only specification, relevant hardware-related terms are still explained for convenience sake.
 \begin{enumerate}
 	\item General terms
 	\begin{enumerate}
@@ -27,16 +27,19 @@ Despite this being a software-only specification, relevant hardware-related term
 		\item ACME - The company which BGP is produced for
 		\item User - Cyclist who uses the Bicycle Garage Pro system
 		\item Operator - Subject responsible for managing BGP (on-site)
-		\item Entrance - Main entrance door of the garage
-		\item Exit 1 - Garage exit for users with bicycles
-		\item Exit 2 - Garage exit for users without bicycles
+		\item Entrance - Main entrance door of the garage. Electronic lock.
+		\item Exit 1 - Garage exit for users with bicycles. Electronic lock.
+		\item Exit 2 - Garage exit for users without bicycles. Normal lock. Can be opened from inside the garage.
 	\end{enumerate}
 
 	\item Software-related terms
 	\begin{enumerate}
 		\item (The) System - Bicycle Garage Pro software
+		\item GUI - Graphical user interface
+		\item CRUD - Create, read, update and delete (operations)
 		\item PIN - Four-digit code, used to access the garage
 		\item API - Application programming interface
+		\item Database - System-relevant data is store in the database
 	\end{enumerate}
 
 	\item Hardware-related terms
@@ -73,6 +76,18 @@ The structure of this specification is based on guidelines from the ETSA01 cours
 
 \section{Product description}
 \label{sec:proddesc}
+
+For clarification purposes, see \cref{fig:garage} for an example oh how the complete garage facility (physical) can look like. The PC runs BGP.
+
+The interactions between the system and external entities, that may interact with the system, can be seen in \cref{fig:context-hw}. The control unit is the BGP software. The arrows in \cref{fig:context-hw} mainly aim to specify software-related signals that are relevant to this specification.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{./assets/garage.png}
+	\caption{Simple example of how the complete garage system would look}
+	\label{fig:garage}
+\end{figure}
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{./assets/context-hw-nobox.png}
@@ -80,7 +95,6 @@ The structure of this specification is based on guidelines from the ETSA01 cours
 	\label{fig:context-hw}
 \end{figure}
 
-The interactions between the system and external entities, that may interact with the system, can be seen in \cref{fig:context-hw}. The control unit is the BGP software. The arrows in \cref{fig:context-hw} mainly aim to specify software-related signals that are relevant to this specification.
 
 \begin{enumerate}
 	\item The control unit sends out the following signals:
@@ -101,9 +115,10 @@ The interactions between the system and external entities, that may interact wit
 \end{enumerate}
 
 \section{Requirements}
-\subsection{Application programming interface}
-BGP should at least implement the main API defined in \cref{sec:proddesc}.
+\subsection{Interface}
+BGP should support the API defined in \cref{sec:proddesc}.
 \subsection{Use cases}
+\label{sec:cases}
 The use cases below are the most typical scenarios that one would run into, when using the bicycle garage. The idea is that the system should at least be able to handle these use cases. Keep in mind that this isn't a complete description of the system and should therefore not be used as the main guidelines for developing the system.
 
 \begin{usecase}
@@ -118,8 +133,7 @@ The use cases below are the most typical scenarios that one would run into, when
 	\addscenario{Exception scenarios:}{
 		\item [1.a] Barcode is not recognized:
 			\begin{enumerate}
-				\item[1.] Red LED blinks to indicate failure.
-				\item[2.] Use case ends here. The remaining steps are skipped.
+				\item[1.] Use case ends here. The remaining steps are skipped.
 			\end{enumerate}
 	}
 \end{usecase}
@@ -164,7 +178,7 @@ The use cases below are the most typical scenarios that one would run into, when
 	\addtitle{Use case 4:}{User wants to unregister}
 	\addfield{Primary actor:}{Operator}
 	\addfield{Preconditions:}{User is registered.}
-	\addfield{Post-conditions:}{The user, and related data, has been removed from the system.}
+	\addfield{Post-conditions:}{The user has been removed from the system.}
 	\addscenario{Main success scenario:}{
 		\item The operator removes the user from the system.
 	}
@@ -180,8 +194,61 @@ The use cases below are the most typical scenarios that one would run into, when
 	}
 \end{usecase}
 \subsection{Functional requirements}
+\subsubsection{User-related requirements}
+\begin{enumerate}
+	\item The system shall keep track of following about an user:
+	\begin{enumerate}
+		\item User ID (unique 5 digit integer)
+		\item First name and last name
+		\item Address
+	\end{enumerate}
+	\item The system shall store user data in a database.
+	\item The system shall be able to add users to the database.
+	\item The system shall be able to remove users from the database.
+	\item The system shall be able to list all users in the database.
+\end{enumerate}
+\subsubsection{Bicycle-related requirements}
+\begin{enumerate}
+	\item The system shall keep track of following about a bicycle:
+	\begin{enumerate}
+		\item Bicycle ID (unique 5 digit integer)
+		\item User ID (which user the bicycle belongs to)
+		\item Date of when the bicycles was last checked-in
+		\item Whether the bicycle is checked-in or not
+	\end{enumerate}
+	\item The system shall store bicycle data in a database.
+	\item The system shall be able to add bicycles to the database.
+	\item The system shall be able to remove bicycles from the database.
+	\item The system shall be able to list all bicycles in the database.
+\end{enumerate}
+\subsubsection{Interaction-related requirements}
+\begin{enumerate}
+	\item When the \emph{correct} PIN is entered at the entrance:
+		\begin{enumerate}
+			\item The LED shall show green for 4 seconds.
+			\item The system shall unlock the entrance for 10 seconds.
+		\end{enumerate}
+	\item When an \emph{in-correct} PIN is entered at the entrance the LED shall show red for 4 seconds.
+	\item When a recognized barcode is scanned at the entrance:
+		\begin{enumerate}
+			\item The system shall unlock the entrance for 10 seconds.
+			\item A new check-in date should be set for the bicycle.
+		\end{enumerate}
+	\item When a recognized barcode is scanned at exit 1, the system shall unlock the exit for 10 seconds.
+\end{enumerate}
+\subsubsection{Miscellaneous}
+\begin{enumerate}
+	\item The system shall provide a relevant graphical interface needed for an operator to manage the system. See use cases, where the operator is the primary actor, in \cref{sec:cases} for relevant scenarios.
+	\item If the delay between two input signals from the PIN terminal exceeds 5 seconds, the system shall reset the PIN terminal.
+\end{enumerate}
 \subsection{Quality requirements}
-
+\begin{enumerate}
+	\item PIN shall be 6 digits long.
+	\item PIN shall only consist of numbers, ranging from 0 to 9 (inclusive).
+	\item Only one PIN shall be used, for all users, to access the garage.
+	\item The database shall persist on disk (PC) despite power failure.
+	\item The user interface shall take at most 0.2 seconds to respond to each individual user input.
+\end{enumerate}
 \bibliography{bibliography}{}
 \bibliographystyle{plain}
 \include{appendix}

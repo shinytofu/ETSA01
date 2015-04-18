@@ -37,13 +37,14 @@ Despite this being a software-only specification, relevant hardware-related term
 		\item (The) System - Bicycle Garage Pro software
 		\item GUI - Graphical user interface
 		\item CRUD - Create, read, update and delete (operations)
-		\item PIN - Four-digit code, used to access the garage
+		\item PIN - Five-digit code, used to access the garage
 		\item API - Application programming interface
 		\item Database - System-relevant data is store in the database
 	\end{enumerate}
 
 	\item Hardware-related terms
 	\begin{enumerate}
+		\item PC - Personal computer
 		\item LED - Light-emitting diode
 		\item Barcode reader - Device that can read/scan barcodes
 		\item Barcode printer - Device that can print barcodes
@@ -77,7 +78,7 @@ The structure of this specification is based on guidelines from the ETSA01 cours
 \section{Product description}
 \label{sec:proddesc}
 
-For clarification purposes, see \cref{fig:garage} for an example oh how the complete garage facility (physical) can look like. The PC runs BGP.
+For clarification purposes, see \cref{fig:garage} for an example on how the complete garage facility (physical) can look like. The PC runs BGP.
 
 The interactions between the system and external entities, that may interact with the system, can be seen in \cref{fig:context-hw}. The control unit is the BGP software. The arrows in \cref{fig:context-hw} mainly aim to specify software-related signals that are relevant to this specification.
 
@@ -144,13 +145,13 @@ The use cases below are the most typical scenarios that one would run into, when
 	\addfield{Preconditions:}{User is registered. User has a registered bicycle, stored in the garage.}
 	\addfield{Post-conditions:}{The bicycle of the user is checked out.}
 	\addscenario{Main success scenario:}{
-		\item User enters the PIN at the entrance.
+		\item User enters their personal PIN at the entrance.
 		\item The entrance door unlocks.
 		\item The user scans their barcode at exit 1.
 		\item Exit 1 unlocks.
 	}
 	\addscenario{Exception scenarios:}{
-		\item [1.a] PIN is in-correct:
+		\item [1.a] PIN is incorrect:
 			\begin{enumerate}
 				\item[1.] Red LED blinks to indicate failure.
 				\item[2.] Use case ends here. The remaining steps are skipped.
@@ -198,9 +199,10 @@ The use cases below are the most typical scenarios that one would run into, when
 \begin{enumerate}
 	\item The system shall keep track of following about an user:
 	\begin{enumerate}
-		\item User ID (unique 5 digit integer)
+		\item User ID (unique 4 digit integer)
 		\item First name and last name
 		\item Address
+		\item Unique PIN (unique 4 digit integer)
 	\end{enumerate}
 	\item The system shall store user data in a database.
 	\item The system shall be able to add users to the database.
@@ -228,7 +230,7 @@ The use cases below are the most typical scenarios that one would run into, when
 			\item The LED shall show green for 4 seconds.
 			\item The system shall unlock the entrance for 10 seconds.
 		\end{enumerate}
-	\item When an \emph{in-correct} PIN is entered at the entrance the LED shall show red for 4 seconds.
+	\item When an \emph{incorrect} PIN is entered at the entrance the LED shall show red for 4 seconds.
 	\item When a recognized barcode is scanned at the entrance:
 		\begin{enumerate}
 			\item The system shall unlock the entrance for 10 seconds.
@@ -243,7 +245,7 @@ The use cases below are the most typical scenarios that one would run into, when
 \end{enumerate}
 \subsection{Quality requirements}
 \begin{enumerate}
-	\item PIN shall be 6 digits long.
+	\item PIN shall be 4 digits long.
 	\item PIN shall only consist of numbers, ranging from 0 to 9 (inclusive).
 	\item Only one PIN shall be used, for all users, to access the garage.
 	\item The database shall persist on disk (PC) despite power failure.

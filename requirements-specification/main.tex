@@ -36,7 +36,7 @@ Despite this being a software-only specification, relevant hardware-related term
 		\item (The) System - Bicycle Garage Pro software
 		\item GUI - Graphical user interface
 		\item CRUD - Create, read, update and delete (operations)
-		\item PIN - Four-digit code, used to access the garage
+		\item PIN - 4-digit code, used to access the garage
 		\item API - Application programming interface
 		\item Database - System-relevant data is store in the database
 	\end{enumerate}
@@ -90,7 +90,7 @@ The interactions between the system and external entities, that may interact wit
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{./assets/context-hw-nobox.png}
+	\includegraphics[width=0.9\textwidth]{./assets/context.png}
 	\caption{Context diagram for BGP}
 	\label{fig:context-hw}
 \end{figure}
@@ -110,7 +110,7 @@ The interactions between the system and external entities, that may interact wit
 		\item exitBarcode - Received when a barcode is scanned at the exit
 		\item addUser - Received when the operator wants to add an user
 		\item removeUser - Received when the operator wants to remove an user
-		\item listAll - Received when the operator wants to see all users
+		\item searchUser - Received when the operator wants to search for an user
 	\end{enumerate}
 \end{enumerate}
 
@@ -148,7 +148,7 @@ The use cases below are the most typical scenarios that one would run into when 
 	\addfield{Preconditions:}{User is registered. User has a registered bicycle, stored in the garage.}
 	\addfield{Postconditions:}{The bicycle of the user is checked out.}
 	\addscenario{Main success scenario:}{
-		\item User enters their personal PIN at the entrance.
+		\item User enters their PIN at the entrance.
 		\item The entrance door unlocks.
 		\item The user scans their barcode at exit 1.
 		\item Exit 1 unlocks.
@@ -190,6 +190,13 @@ The use cases below are the most typical scenarios that one would run into when 
 	\addscenario{Main success scenario:}{
 		\item The operator removes the user from the system.
 	}
+	\addscenario{Exception scenarios:}{
+		\item [1.a] User has an checked in bicycle:
+			\begin{enumerate}
+				\item[1.] User is removed anyways.
+				\item[2.] User will have to contact the operator for assistance.
+			\end{enumerate}
+	}
 \end{usecase}
 
 \begin{usecase}
@@ -201,34 +208,48 @@ The use cases below are the most typical scenarios that one would run into when 
 		\item The operator provides the user with their PIN.
 	}
 \end{usecase}
+
+\begin{usecase}
+	\addtitle{Use case 4:}{User wants to store a bicycle in a full garage.}
+	\addfield{Primary actor:}{User}
+	\addfield{Preconditions:}{User is registered. Garage is full.}
+	\addscenario{Main success scenario:}{
+		\item User scans their barcode at the entrance.
+		\item Door stays locked because the garage is full.
+	}
+\end{usecase}
 \subsection{Functional requirements}
 \subsubsection{User-related requirements}
 \begin{enumerate}
 	\item The system shall keep track of following about an user:
 	\begin{enumerate}
-		\item User ID (unique 4 digit integer)
 		\item First name and last name
-		\item Personal identity number
-		\item Unique PIN (unique 4 digit integer)
+		\item National identity number (unique 10-digit string)
+		\item Unique PIN (unique 4-digit integer)
 	\end{enumerate}
+	\item Each users shall have an unique 4-digit PIN that only consist of numbers ranging from 0 to 9 (inclusive).
 	\item The system shall store user data in a database.
 	\item The system shall be able to add users to the database.
 	\item The system shall be able to remove users from the database.
-	\item The system shall be able to list all users in the database.
+	\item The system shall be able to edit users in the database.
+	\item The system shall be able to search for users in the database, by national identity number.
+	\item The system shall not be able to add users once all unique PINs are in use.
+	\item When users are removed from the database, the system shall be able to re-use the unique PIN.
 \end{enumerate}
 \subsubsection{Bicycle-related requirements}
 \begin{enumerate}
 	\item The system shall keep track of following about a bicycle:
 	\begin{enumerate}
-		\item Bicycle ID (unique 5 digit integer)
-		\item User ID (which user the bicycle belongs to)
+		\item Bicycle ID (unique 5-digit integer)
 		\item Date of when the bicycles was last checked-in
 		\item Whether the bicycle is checked-in or not
 	\end{enumerate}
 	\item The system shall store bicycle data in a database.
 	\item The system shall be able to add bicycles to the database.
 	\item The system shall be able to remove bicycles from the database.
-	\item The system shall be able to list all bicycles in the database.
+	\item The system shall not be able to add bicycles once all unique Bicycle IDs are in use.
+	\item The system shall not any allow more than 500 checked in bicycles, in the garage, at a time.
+	\item When bicycles are removed from the database, the system shall be able to re-use the bicycle ID.
 \end{enumerate}
 \subsubsection{Interaction-related requirements}
 \begin{enumerate}
@@ -252,9 +273,6 @@ The use cases below are the most typical scenarios that one would run into when 
 \end{enumerate}
 \subsection{Quality requirements}
 \begin{enumerate}
-	\item PIN shall be 4 digits long.
-	\item PIN shall only consist of numbers, ranging from 0 to 9 (inclusive).
-	\item Each user will be provided with their own unique PIN.
 	\item The database shall persist on disk (PC) despite power failure.
 	\item The user interface shall take at most 0.2 seconds to respond to each individual user input.
 \end{enumerate}

@@ -110,7 +110,7 @@ The interactions between the system and external entities, that may interact wit
 		\item exitBarcode - Received when a barcode is scanned at the exit
 		\item addUser - Received when the operator wants to add an user
 		\item removeUser - Received when the operator wants to remove an user
-		\item getUserByNIN - Received when the operator wants to search for an user by national identity number
+		\item getUserByNIN - Received when the operator wants to search for an user by national identification number
 	\end{enumerate}
 \end{enumerate}
 
@@ -191,7 +191,7 @@ The use cases below are the most typical scenarios that one would run into when 
 		\item The operator removes the user from the system.
 	}
 	\addscenario{Exception scenarios:}{
-		\item [1.a] User has an checked in bicycle:
+		\item [1.a] User has a checked in bicycle:
 			\begin{enumerate}
 				\item[1.] User is removed anyways.
 				\item[2.] User will have to contact the operator for assistance.
@@ -224,32 +224,32 @@ The use cases below are the most typical scenarios that one would run into when 
 	\item The system shall keep track of following about an user:
 	\begin{enumerate}
 		\item First name and last name
-		\item National identity number (unique 10-digit string)
+		\item National identification number (unique 10-digit string)
 		\item Unique PIN (unique 4-digit integer)
 	\end{enumerate}
 	\item Each users shall have an unique 4-digit PIN that only consist of numbers ranging from 0 to 9 (inclusive).
 	\item The system shall store user data in a database.
 	\item The system shall be able to add users to the database.
 	\item The system shall be able to remove users from the database.
-	\item The system shall be able to edit users in the database.
-	\item The system shall be able to search for users in the database, by national identity number.
+	\item The system shall be able to search for users in the database, by national identification number.
 	\item The system shall not be able to add users once all unique PINs are in use.
-	\item When users are removed from the database, the system shall be able to re-use the unique PIN.
+	\item When users are removed from the database, the system shall be able to reuse the unique PIN.
 \end{enumerate}
 \subsubsection{Bicycle-related requirements}
 \begin{enumerate}
 	\item The system shall keep track of following about a bicycle:
 	\begin{enumerate}
 		\item Bicycle ID (unique 5-digit integer)
-		\item Date of when the bicycles was last checked-in
+		\item Date of when the bicycles was last checked in
+		\item Date of when the bicycles was last checked out
 		\item Whether the bicycle is checked-in or not
 	\end{enumerate}
 	\item The system shall store bicycle data in a database.
 	\item The system shall be able to add bicycles to the database.
 	\item The system shall be able to remove bicycles from the database.
 	\item The system shall not be able to add bicycles once all unique Bicycle IDs are in use.
-	\item The system shall not any allow more than 500 checked in bicycles, in the garage, at a time.
-	\item When bicycles are removed from the database, the system shall be able to re-use the bicycle ID.
+	\item The system shall not allow more than 500 checked in bicycles, in the garage, at a time.
+	\item When bicycles are removed from the database, the system shall be able to reuse the bicycle ID.
 \end{enumerate}
 \subsubsection{Interaction-related requirements}
 \begin{enumerate}

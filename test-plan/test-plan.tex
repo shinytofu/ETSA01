@@ -218,6 +218,17 @@ therefore not discussed in this document.
 	}
 \end{usecase}
 
+\begin{usecase}
+	\addtitle{Test case 6:}{An invalid PIN code is entered}
+	\addfield{Primary actor:}{User}
+	\addfield{Preconditions:}{The PIN code entered is not associated with
+					any registered user.}
+	\addfield{Postconditions:}{-}
+	\addscenario{Main success scenario:}{
+		\item User enters the PIN code at the PIN code terminal.
+		\item The red LED lamp is lit for 4 seconds. 
+	}
+\end{usecase}
 
 
 \end{document}

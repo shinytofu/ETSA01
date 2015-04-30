@@ -140,17 +140,78 @@ therefore not discussed in this document.
 \label{app:test-cases}
 
 \begin{usecase}
-	\addtitle{(Template) Use case 0:}{Someone wants to...}
-	\addfield{Primary actor:}{Someone}
-	\addfield{Preconditions:}{Something is something}
-	\addfield{Postconditions:}{Something is something else}
+	\addtitle{Test case 1:}{Registration of a new user}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{User is unregistered}
+	\addfield{Postconditions:}{User is registered}
 	\addscenario{Main success scenario:}{
-		\item First item is something fun
-		\item Second item is something else (maybe fun, maybe not)
-		\item Third item is always fun, because now we're done
+		\item Operator provides the required user information to the
+			control interface.
+		\item A new PIN code is generated for the user.
+		\item The user is added to the system.
 	}
 \end{usecase}
 
+\begin{usecase}
+	\addtitle{Test case 2:}{Registration of an already registered user}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{User is registered}
+	\addfield{Postconditions:}{User is registered}
+	\addscenario{Main success scenario:}{
+		\item Operator provides the required user information to the
+			control interface.
+		\item The system responds with an error message, e.g. ''The user
+			is already registered.''
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 3:}{Unregistration of a registered user}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{User is registered}
+	\addfield{Postconditions:}{User is unregistered}
+	\addscenario{Main success scenario:}{
+		\item Operator provides the required user information to the
+			control interface.
+		\item All bicycles associated with the user are removed from the
+			system.
+		\item The user is removed from the system.
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 4:}{Association of a new bicycle with a user}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{User is registered; garage is not full}
+	\addfield{Postconditions:}{Bicycle is associated with user}
+	\addscenario{Main success scenario:}{
+		\item Operator provides the required user information to the
+			control interface.
+		\item A unique 5-digit identification number is generated and
+			associated with the bicycle.
+		\item The bicycle is added to the set of bicycles owned by the
+			user.
+		\item A barcode associated with the 5-digit ID is printed and
+			given to the user.
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 5:}{Disassociation of a user's bicycle}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{User is registered; bicycle is associated with
+					user.}
+	\addfield{Postconditions:}{Bicycle is not associated with user nor is it
+					present in the system.}
+	\addscenario{Main success scenario:}{
+		\item Operator provides the required user information to the
+			control interface.
+		\item The bicycle is disassociated with the user.
+		\item The unique 5-digit identification number associated with
+			the bicycle is returned to the pool of available ID's.
+			As a consequence, the barcode is rendered invalid.
+	}
+\end{usecase}
 
 \end{document}
 

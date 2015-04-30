@@ -136,7 +136,7 @@ therefore not discussed in this document.
 	\addfield{Preconditions:}{User is unregistered}
 	\addfield{Postconditions:}{User is registered}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item A new PIN code is generated for the user.
 		\item The user is added to the system.
@@ -149,7 +149,7 @@ therefore not discussed in this document.
 	\addfield{Preconditions:}{User is registered}
 	\addfield{Postconditions:}{User is registered}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item The system responds with an error message, e.g. ''The user
 			is already registered.''
@@ -162,7 +162,7 @@ therefore not discussed in this document.
 	\addfield{Preconditions:}{User is registered}
 	\addfield{Postconditions:}{User is unregistered}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item All bicycles associated with the user are removed from the
 			system.
@@ -176,7 +176,7 @@ therefore not discussed in this document.
 	\addfield{Preconditions:}{User is registered; garage is not full}
 	\addfield{Postconditions:}{Bicycle is associated with user}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item A unique 5-digit identification number is generated and
 			associated with the bicycle.
@@ -190,12 +190,12 @@ therefore not discussed in this document.
 \begin{usecase}
 	\addtitle{Test case 5:}{Disassociation of a user's bicycle}
 	\addfield{Primary actor:}{Operator}
-	\addfield{Preconditions:}{User is registered. The bicycle is associated
-					with the user.}
+	\addfield{Preconditions:}{The user is registered. The bicycle is
+					associated with the user.}
 	\addfield{Postconditions:}{Bicycle is not associated with user nor is it
 					present in the system.}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item The bicycle is disassociated with the user.
 		\item The unique 5-digit identification number associated with
@@ -203,6 +203,9 @@ therefore not discussed in this document.
 			As a consequence, the barcode is rendered invalid.
 	}
 \end{usecase}
+
+% TODO:
+%	Does the user have to have at least one bicycle in the garage for UC6?
 
 \begin{usecase}
 	\addtitle{Test case 6:}{A valid PIN code is entered}
@@ -226,6 +229,47 @@ therefore not discussed in this document.
 	\addfield{Postconditions:}{-}
 	\addscenario{Main success scenario:}{
 		\item User enters the PIN code at the PIN code terminal.
+		\item The red LED lamp is lit for 4 seconds. 
+	}
+\end{usecase}
+
+
+% ----- Unordered test cases ---------------------------------------------------
+% ----- (Just for now. Rename them later and remove this comment.) -------------
+
+\begin{usecase}
+	\addtitle{Test case XXX:}{Recovery of a lost/forgotten PIN code}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{The user is registered.}
+	\addfield{Postconditions:}{-}
+	\addscenario{Main success scenario:}{
+		\item The operator provides the required user information to the
+			control interface.
+		\item The operator requests the PIN code from the system, and
+			gives it to the user.
+	}
+\end{usecase}
+
+
+\begin{usecase}
+	\addtitle{Test case XXX:}{An invalid PIN code is entered}
+	\addfield{Primary actor:}{User}
+	\addfield{Preconditions:}{The PIN code entered is not associated with
+					any registered user.}
+	\addfield{Postconditions:}{-}
+	\addscenario{Main success scenario:}{
+		\item User enters the PIN code at the PIN code terminal.
+		\item The red LED lamp is lit for 4 seconds. 
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case XXX:}{An invalid barcode is scanned}
+	\addfield{Primary actor:}{User or other person}
+	\addfield{Preconditions:}{The barcode is not a part of the system.}
+	\addfield{Postconditions:}{-}
+	\addscenario{Main success scenario:}{
+		\item The invalid barcode is scanned.
 		\item The red LED lamp is lit for 4 seconds. 
 	}
 \end{usecase}

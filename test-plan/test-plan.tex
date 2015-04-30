@@ -1,6 +1,13 @@
 \documentclass[12pt,titlepage,bibliography=totoc]{article}
 \input{settings}
 
+% TODO:
+%	Every subtitle will have the following stuff:
+%		- Performed by:
+%		- Type of test:
+%		- Criterion
+%		- Stop rule
+
 \begin{document}
 \include{cover}
 
@@ -11,8 +18,12 @@
 \setcounter{page}{0}
 \newpage
 
+% ----- REFERENCES -------------------------------------------------------------
+
 \section{References}
 \label{sec:references}
+
+% ----- INTRODUCTION -----------------------------------------------------------
 
 \section{Introduction}
 \label{sec:introduction}
@@ -24,6 +35,7 @@ and the management of their information and their bicycles.
 
 This document provides a specification for testing the bicycle garage software.
 The test process consists of the following phases:
+
 \begin{itemize}
 	\item Unit testing
 	\item Integration testing
@@ -31,16 +43,51 @@ The test process consists of the following phases:
 	\item Acceptance testing
 \end{itemize}
 
+% ----- TEST PROCESS -----------------------------------------------------------
+
 \section{Test process}
 \label{sec:test-process}
 \subsection{Process overview}
+
+
 \subsection{Unit testing}
+\label{subsec:unit-testing}
+
+Every non-trivial function is tested in software through the use of a test suite
+library.
+
+\begin{description}
+	\item[Performed by:]	Developers
+	\item[Type of test:]	Structural
+	\item[Criteria:]	Every line of code is tested
+	\item[Stop rule:]	No errors found
+\end{description}
+
+
 \subsection{Integration testing}
+\label{subsec:integration-testing}
+
+Integration testing is performed in a similar way to unit testing, but larger
+and more inclusive modules are tested. Each module is tested in software through
+the use of a test suite library.
+
+\begin{description}
+	\item[Performed by:]	Developers
+	\item[Type of test:]	Structural
+	\item[Criteria:]	Every API method is tested completely
+	\item[Stop rule:]	No errors found
+\end{description}
+
+
 \subsection{System testing}
 \subsection{Acceptance testing}
 
+% ----- TESTED ITEMS -----------------------------------------------------------
+
 \section{Tested items}
 \label{sec:tested-items}
+
+% ----- TEST RECORDING PROCEDURE -----------------------------------------------
 
 \section{Test recording procedure}
 \label{sec:test-recording-procedure}
@@ -48,6 +95,8 @@ The test process consists of the following phases:
 \subsection{Integration testing}
 \subsection{System testing}
 \subsection{Acceptance testing}
+
+% ----- TEST CASES FOR SYSTEM TESTING ------------------------------------------
 
 \section{Test cases for system testing}
 \label{sec:test-cases-for-system-testing}

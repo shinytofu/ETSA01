@@ -250,6 +250,21 @@ therefore not discussed in this document.
 	}
 \end{usecase}
 
+\begin{usecase}
+	\addtitle{Test case XXX:}{Modification of a user's PIN code}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{The user is registered and there are available
+					PIN codes left.}
+	\addfield{Postconditions:}{The user's PIN code is updated.}
+	\addscenario{Main success scenario:}{
+		\item The operator provides the required user information to the
+			control interface.
+		\item The operator asks the system to generate a new PIN code.
+		\item A PIN code is successfully generated and associated with
+			the user.
+	}
+\end{usecase}
+
 
 \begin{usecase}
 	\addtitle{Test case XXX:}{An invalid PIN code is entered}

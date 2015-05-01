@@ -20,7 +20,9 @@
 
 \section{Introduction}
 \label{sec:introduction}
+
 \subsection{Tested system}
+\label{subsec:tested-system}
 
 The system described in this document is the software for a public bicycle
 garage. This software is responsible for managing the authentication of users
@@ -40,14 +42,26 @@ The test process consists of the following phases:
 
 \section{Test process}
 \label{sec:test-process}
-\subsection{Process overview}
 
+\subsection{Process overview}
+\label{subsec:test-process-process-overview}
+
+The tests of the software are carried out on several levels of abstraction. At
+the lowest level, \textit{unit testing} is performed which aim to test each line
+of code inside the software. These units are grouped into modules, which are
+tested through the API or \textit{Application Programming Interface}, a process
+known as \textit{integration testing}. On an even higher level of abstraction,
+so called \textit{system testing} is performed which ensures that the
+requirements provided in the \textit{Software Requirements Specification} are
+fulfilled. Lastly, \textit{acceptance testing} is performed. However, acceptance
+testing is performed by the customer and thus not within the scope of this
+document.
 
 \subsection{Unit testing}
-\label{subsec:unit-testing}
+\label{subsec:test-process-unit-testing}
 
-Every non-trivial function is tested in software through the use of a test suite
-library.
+Unit testing aims to test each line of software code. Every non-trivial function
+is tested in software through the use of a test suite library.
 
 \begin{description}
 	\item[Performed by:]	Developers
@@ -58,7 +72,7 @@ library.
 
 
 \subsection{Integration testing}
-\label{subsec:integration-testing}
+\label{subsec:test-process-integration-testing}
 
 Integration testing is performed in a similar way to unit testing, but larger
 and more inclusive modules are tested. Each module is tested in software through
@@ -73,7 +87,7 @@ the use of a test suite library.
 
 
 \subsection{System testing}
-\label{subsec:system-testing}
+\label{subsec:test-process-system-testing}
 
 During system testing, all requirements specified inside the Software
 Requirements Specification are tested.
@@ -86,37 +100,78 @@ Requirements Specification are tested.
 \end{description}
 
 \subsection{Acceptance testing}
+\label{subsec:test-process-acceptance-testing}
 
-Acceptance testing is performed by the client and not the developers, and is
-therefore not discussed in this document.
+Acceptance testing is performed by the client and not by the developers, and is
+thus not discussed in this document.
 
 % ----- TESTED ITEMS -----------------------------------------------------------
 
 \section{Tested items}
 \label{sec:tested-items}
 
-%
-% TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-%
+TODO \\
+
+... perhaps this section should be removed? In the example found in the green
+booklet for the course, this section is nothing but a repetition of what has
+already been said.
+
 
 % ----- TEST RECORDING PROCEDURE -----------------------------------------------
 
 \section{Test recording procedure}
 \label{sec:test-recording-procedure}
+
 \subsection{Unit testing}
+\label{subsec:test-recording-procedure-unit-testing}
+
+Every non-trivial piece of software code is tested individially by the
+developers. These tests are automated and performed incrementally as the
+code base grows. The results of these tests do not have to be recorded; the
+rationale for this being that the tests provide enough assurance on their own
+and that the size of the test log would soon grow out of hand.
+
 \subsection{Integration testing}
+\label{subsec:test-recording-procedure-integration-testing}
+
+TODO
+
 \subsection{System testing}
+\label{subsec:test-recording-procedure-system-testing}
+
+TODO
+
 \subsection{Acceptance testing}
+\label{subsec:test-recording-procedure-acceptance-testing}
+
+Acceptance testing is performed by the client and not by the developers, and is
+thus not discussed in this document.
+
 
 % ----- TEST CASES FOR SYSTEM TESTING ------------------------------------------
 
 \section{Test cases for system testing}
 \label{sec:test-cases-for-system-testing}
+
 \subsection{Test cases}
+\label{subsec:test-cases}
+
+Since unit- and integration testing is performed in the software environment and
+acceptance testing is performed by the customer, only system testing will be
+fully described in this document. For this purpose, please refer to
+\textit{Appendix \ref{app:test-cases}: \nameref{app:test-cases}}.
+
 \subsection{Requirements coverage and traceability}
+\label{subsec:requirements-coverage-and-testability}
+
+All functional requirements provided in the \textit{Software Requirements
+Specification} should be tested by at least on test case to ensure that all
+functionality is tested. For this purpose, a \textit{requirements coverage
+matrix} is used.
 
 \bibliography{bibliography}{}
 \bibliographystyle{plain}
+
 
 % TODO: Move appendix to its own file and include it here.
 %\include{appendix}
@@ -230,12 +285,8 @@ therefore not discussed in this document.
 	}
 \end{usecase}
 
-
-% ----- Unordered test cases ---------------------------------------------------
-% ----- (Just for now. Rename them later and remove this comment.) -------------
-
 \begin{usecase}
-	\addtitle{Test case XXX:}{Recovery of a lost/forgotten PIN code}
+	\addtitle{Test case 8:}{Recovery of a lost/forgotten PIN code}
 	\addfield{Primary actor:}{Operator}
 	\addfield{Preconditions:}{The user is registered.}
 	\addfield{Postconditions:}{-}
@@ -248,7 +299,7 @@ therefore not discussed in this document.
 \end{usecase}
 
 \begin{usecase}
-	\addtitle{Test case XXX:}{Modification of a user's PIN code}
+	\addtitle{Test case 9:}{Modification of a user's PIN code}
 	\addfield{Primary actor:}{Operator}
 	\addfield{Preconditions:}{The user is registered and there are available
 					PIN codes left.}
@@ -263,7 +314,7 @@ therefore not discussed in this document.
 \end{usecase}
 
 \begin{usecase}
-	\addtitle{Test case XXX:}{An invalid PIN code is entered}
+	\addtitle{Test case 10:}{An invalid PIN code is entered}
 	\addfield{Primary actor:}{User}
 	\addfield{Preconditions:}{The PIN code entered is not associated with
 					any registered user.}
@@ -275,7 +326,7 @@ therefore not discussed in this document.
 \end{usecase}
 
 \begin{usecase}
-	\addtitle{Test case XXX:}{An invalid barcode is scanned}
+	\addtitle{Test case 11:}{An invalid barcode is scanned}
 	\addfield{Primary actor:}{User or other person}
 	\addfield{Preconditions:}{The barcode is not a part of the system.}
 	\addfield{Postconditions:}{-}
@@ -286,7 +337,7 @@ therefore not discussed in this document.
 \end{usecase}
 
 \begin{usecase}
-	\addtitle{Test case XXX:}{Creation of a new barcode for an existing
+	\addtitle{Test case 12:}{Creation of a new barcode for an existing
 					bicycle}
 	\addfield{Primary actor:}{Operator}
 	\addfield{Preconditions:}{The user is registered and the subject bicycle
@@ -306,25 +357,4 @@ therefore not discussed in this document.
 
 
 \end{document}
-
-
-% TODO:
-%	Remove empty newlines at the bottom of this document :)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

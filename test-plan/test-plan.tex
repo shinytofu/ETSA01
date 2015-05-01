@@ -204,9 +204,6 @@ therefore not discussed in this document.
 	}
 \end{usecase}
 
-% TODO:
-%	Does the user have to have at least one bicycle in the garage for UC6?
-
 \begin{usecase}
 	\addtitle{Test case 6:}{A valid PIN code is entered}
 	\addfield{Primary actor:}{User}
@@ -222,7 +219,7 @@ therefore not discussed in this document.
 \end{usecase}
 
 \begin{usecase}
-	\addtitle{Test case 6:}{An invalid PIN code is entered}
+	\addtitle{Test case 7:}{An invalid PIN code is entered}
 	\addfield{Primary actor:}{User}
 	\addfield{Preconditions:}{The PIN code entered is not associated with
 					any registered user.}
@@ -265,7 +262,6 @@ therefore not discussed in this document.
 	}
 \end{usecase}
 
-
 \begin{usecase}
 	\addtitle{Test case XXX:}{An invalid PIN code is entered}
 	\addfield{Primary actor:}{User}
@@ -286,6 +282,25 @@ therefore not discussed in this document.
 	\addscenario{Main success scenario:}{
 		\item The invalid barcode is scanned.
 		\item The red LED lamp is lit for 4 seconds. 
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case XXX:}{Creation of a new barcode for an existing
+					bicycle}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{The user is registered and the subject bicycle
+					is associated with them.}
+	\addfield{Postconditions:}{A new barcode is associated with the subject
+					bicycle's 5-digit identification
+					number.}
+	\addscenario{Main success scenario:}{
+		\item The operator provides the required user information,
+			including the bicycle's 5-digit identification number,
+			to the control interface.
+		\item The old barcode associated with the ID is rendered invalid
+			and a new one is generated, associated with the ID and
+			then printed.
 	}
 \end{usecase}
 

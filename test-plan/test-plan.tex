@@ -20,7 +20,9 @@
 
 \section{Introduction}
 \label{sec:introduction}
+
 \subsection{Tested system}
+\label{subsec:tested-system}
 
 The system described in this document is the software for a public bicycle
 garage. This software is responsible for managing the authentication of users
@@ -40,14 +42,26 @@ The test process consists of the following phases:
 
 \section{Test process}
 \label{sec:test-process}
-\subsection{Process overview}
 
+\subsection{Process overview}
+\label{subsec:test-process-process-overview}
+
+The tests of the software are carried out on several levels of abstraction. At
+the lowest level, \textit{unit testing} is performed which aim to test each line
+of code inside the software. These units are grouped into modules, which are
+tested through the API or \textit{Application Programming Interface}, a process
+known as \textit{integration testing}. On an even higher level of abstraction,
+so called \textit{system testing} is performed which ensures that the
+requirements provided in the \textit{Software Requirements Specification} are
+fulfilled. Lastly, \textit{acceptance testing} is performed. However, acceptance
+testing is performed by the customer and thus not within the scope of this
+document.
 
 \subsection{Unit testing}
-\label{subsec:unit-testing}
+\label{subsec:test-process-unit-testing}
 
-Every non-trivial function is tested in software through the use of a test suite
-library.
+Unit testing aims to test each line of software code. Every non-trivial function
+is tested in software through the use of a test suite library.
 
 \begin{description}
 	\item[Performed by:]	Developers
@@ -58,7 +72,7 @@ library.
 
 
 \subsection{Integration testing}
-\label{subsec:integration-testing}
+\label{subsec:test-process-integration-testing}
 
 Integration testing is performed in a similar way to unit testing, but larger
 and more inclusive modules are tested. Each module is tested in software through
@@ -73,7 +87,7 @@ the use of a test suite library.
 
 
 \subsection{System testing}
-\label{subsec:system-testing}
+\label{subsec:test-process-system-testing}
 
 During system testing, all requirements specified inside the Software
 Requirements Specification are tested.
@@ -86,37 +100,78 @@ Requirements Specification are tested.
 \end{description}
 
 \subsection{Acceptance testing}
+\label{subsec:test-process-acceptance-testing}
 
-Acceptance testing is performed by the client and not the developers, and is
-therefore not discussed in this document.
+Acceptance testing is performed by the client and not by the developers, and is
+thus not discussed in this document.
 
 % ----- TESTED ITEMS -----------------------------------------------------------
 
 \section{Tested items}
 \label{sec:tested-items}
 
-%
-% TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
-%
+TODO \\
+
+... perhaps this section should be removed? In the example found in the green
+booklet for the course, this section is nothing but a repetition of what has
+already been said.
+
 
 % ----- TEST RECORDING PROCEDURE -----------------------------------------------
 
 \section{Test recording procedure}
 \label{sec:test-recording-procedure}
+
 \subsection{Unit testing}
+\label{subsec:test-recording-procedure-unit-testing}
+
+Every non-trivial piece of software code is tested individially by the
+developers. These tests are automated and performed incrementally as the
+code base grows. The results of these tests do not have to be recorded; the
+rationale for this being that the tests provide enough assurance on their own
+and that the size of the test log would soon grow out of hand.
+
 \subsection{Integration testing}
+\label{subsec:test-recording-procedure-integration-testing}
+
+TODO
+
 \subsection{System testing}
+\label{subsec:test-recording-procedure-system-testing}
+
+TODO
+
 \subsection{Acceptance testing}
+\label{subsec:test-recording-procedure-acceptance-testing}
+
+Acceptance testing is performed by the client and not by the developers, and is
+thus not discussed in this document.
+
 
 % ----- TEST CASES FOR SYSTEM TESTING ------------------------------------------
 
 \section{Test cases for system testing}
 \label{sec:test-cases-for-system-testing}
+
 \subsection{Test cases}
+\label{subsec:test-cases}
+
+Since unit- and integration testing is performed in the software environment and
+acceptance testing is performed by the customer, only system testing will be
+fully described in this document. For this purpose, please refer to
+\textit{Appendix \ref{app:test-cases}: \nameref{app:test-cases}}.
+
 \subsection{Requirements coverage and traceability}
+\label{subsec:requirements-coverage-and-testability}
+
+All functional requirements provided in the \textit{Software Requirements
+Specification} should be tested by at least on test case to ensure that all
+functionality is tested. For this purpose, a \textit{requirements coverage
+matrix} is used.
 
 \bibliography{bibliography}{}
 \bibliographystyle{plain}
+
 
 % TODO: Move appendix to its own file and include it here.
 %\include{appendix}
@@ -136,7 +191,7 @@ therefore not discussed in this document.
 	\addfield{Preconditions:}{User is unregistered}
 	\addfield{Postconditions:}{User is registered}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item A new PIN code is generated for the user.
 		\item The user is added to the system.
@@ -149,7 +204,7 @@ therefore not discussed in this document.
 	\addfield{Preconditions:}{User is registered}
 	\addfield{Postconditions:}{User is registered}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item The system responds with an error message, e.g. ''The user
 			is already registered.''
@@ -162,7 +217,7 @@ therefore not discussed in this document.
 	\addfield{Preconditions:}{User is registered}
 	\addfield{Postconditions:}{User is unregistered}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item All bicycles associated with the user are removed from the
 			system.
@@ -176,7 +231,7 @@ therefore not discussed in this document.
 	\addfield{Preconditions:}{User is registered; garage is not full}
 	\addfield{Postconditions:}{Bicycle is associated with user}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item A unique 5-digit identification number is generated and
 			associated with the bicycle.
@@ -190,12 +245,12 @@ therefore not discussed in this document.
 \begin{usecase}
 	\addtitle{Test case 5:}{Disassociation of a user's bicycle}
 	\addfield{Primary actor:}{Operator}
-	\addfield{Preconditions:}{User is registered. The bicycle is associated
-					with the user.}
+	\addfield{Preconditions:}{The user is registered. The bicycle is
+					associated with the user.}
 	\addfield{Postconditions:}{Bicycle is not associated with user nor is it
 					present in the system.}
 	\addscenario{Main success scenario:}{
-		\item Operator provides the required user information to the
+		\item The operator provides the required user information to the
 			control interface.
 		\item The bicycle is disassociated with the user.
 		\item The unique 5-digit identification number associated with
@@ -218,28 +273,88 @@ therefore not discussed in this document.
 	}
 \end{usecase}
 
+\begin{usecase}
+	\addtitle{Test case 7:}{An invalid PIN code is entered}
+	\addfield{Primary actor:}{User}
+	\addfield{Preconditions:}{The PIN code entered is not associated with
+					any registered user.}
+	\addfield{Postconditions:}{-}
+	\addscenario{Main success scenario:}{
+		\item User enters the PIN code at the PIN code terminal.
+		\item The red LED lamp is lit for 4 seconds. 
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 8:}{Recovery of a lost/forgotten PIN code}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{The user is registered.}
+	\addfield{Postconditions:}{-}
+	\addscenario{Main success scenario:}{
+		\item The operator provides the required user information to the
+			control interface.
+		\item The operator requests the PIN code from the system, and
+			gives it to the user.
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 9:}{Modification of a user's PIN code}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{The user is registered and there are available
+					PIN codes left.}
+	\addfield{Postconditions:}{The user's PIN code is updated.}
+	\addscenario{Main success scenario:}{
+		\item The operator provides the required user information to the
+			control interface.
+		\item The operator asks the system to generate a new PIN code.
+		\item A PIN code is successfully generated and associated with
+			the user.
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 10:}{An invalid PIN code is entered}
+	\addfield{Primary actor:}{User}
+	\addfield{Preconditions:}{The PIN code entered is not associated with
+					any registered user.}
+	\addfield{Postconditions:}{-}
+	\addscenario{Main success scenario:}{
+		\item User enters the PIN code at the PIN code terminal.
+		\item The red LED lamp is lit for 4 seconds. 
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 11:}{An invalid barcode is scanned}
+	\addfield{Primary actor:}{User or other person}
+	\addfield{Preconditions:}{The barcode is not a part of the system.}
+	\addfield{Postconditions:}{-}
+	\addscenario{Main success scenario:}{
+		\item The invalid barcode is scanned.
+		\item The red LED lamp is lit for 4 seconds. 
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 12:}{Creation of a new barcode for an existing
+					bicycle}
+	\addfield{Primary actor:}{Operator}
+	\addfield{Preconditions:}{The user is registered and the subject bicycle
+					is associated with them.}
+	\addfield{Postconditions:}{A new barcode is associated with the subject
+					bicycle's 5-digit identification
+					number.}
+	\addscenario{Main success scenario:}{
+		\item The operator provides the required user information,
+			including the bicycle's 5-digit identification number,
+			to the control interface.
+		\item The old barcode associated with the ID is rendered invalid
+			and a new one is generated, associated with the ID and
+			then printed.
+	}
+\end{usecase}
 
 
 \end{document}
-
-
-% TODO:
-%	Remove empty newlines at the bottom of this document :)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -53,9 +53,9 @@ TODO: Section incomplete. \\
 	\end{enumerate}
 	\item Software-related terms
 	\begin{enumerate}
-		\item TODO
-		\item TODO
-		\item TODO
+		\item JAR -- Java Archive
+		\item JVM -- Java Virtual Machine
+		\item TODO: Add more
 	\end{enumerate}
 \end{enumerate}
 
@@ -88,7 +88,15 @@ referred to in \textit{section \ref{sec:references}: \nameref{sec:references}}.
 
 \section{Software design overview}
 
-TODO: Provide a high-level overview of the entire document; a kind of summary.
+TODO: Provide a high-level overview of the entire document; a kind of summary.\\
+
+The entire software shall be able to be packaged into a JAR file to be run on a
+JVM installed on the main computer in the BGP system. Therefore, the software
+shall be written in a JVM-compatible language such as Java, Clojure or Scala.
+This particular document describes the software as written in the Java language;
+the rationale for this being that Java is an easily accessible and widely known
+language. The software thus becomes easy to distribute among BGP systems across
+the world.
 
 \section{Architectural overview}
 \label{sec:architectural-overview}
@@ -101,6 +109,39 @@ operator interface, the database, and the categories of classes.
 
 TODO: Describe the scope and purpose of each class, its data, and its relation
 to other classes. Refer to one or more UML diagrams in an appendix.
+
+\subsection{Modules or Java \texttt{package}s}
+
+This section describes the different modules, organized by Java
+\texttt{package}s, that compose the BGP software.
+
+\subsubsection{\texttt{bicyclegarage}}
+
+Below are the classes found in \texttt{package bicyclegarage}.
+
+\begin{description}[font=\normalfont]
+	\item [\texttt{Bicycle}]	\hfill \\
+		Describes a bicycle owned by a user.
+
+	\item [\texttt{User}]		\hfill \\
+		Describes a cyclist using the BGP system.
+
+	\item [\texttt{Garage}]		\hfill \\
+		...
+
+	\item [\texttt{Manager}]	\hfill \\
+		...
+
+	\item [\texttt{Logger}]		\hfill \\
+		A simple logger used to keep an audit log.
+\end{description}
+
+% May be useful somewhere, so keep it here, but commented out:
+%\rule{\textwidth}{1pt}
+
+\subsubsection{\texttt{tests}}
+\subsubsection{\texttt{interfaces}}
+\subsubsection{\texttt{testdrivers}}
 
 \section{(Data design)}
 \label{sec:data-design}

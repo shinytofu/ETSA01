@@ -1,0 +1,2 @@
+trash *.aux *.log *.toc *.bbl *.out
+trash output/*.aux output/*.log output/*.toc output/*.bbl output/*.out

@@ -1,0 +1,48 @@
+\appendix
+
+\section{Hardware API}
+\label{app:hardware}
+This API specification is directly copied from \url{http://cs.lth.se/etsa01/projekt-2015/haardvarugraenssnitt-och-drivrutiner/}. If there are any questions regarding the hardware API, please contact Markus Borg (\url{Markus.Borg@cs.lth.se}).
+
+\begin{lstlisting}[language=Java]
+public interface BarcodePrinter {
+	/* Print a bicycleID as a barcode.
+	 * Bicycle ID should be a string of 5 characters, where every
+	 * character can be '0', '1',... '9'. */
+
+	public void printBarcode(String bicycleID);
+}
+
+public interface PinCodeTerminal { 
+	/* Register bicycle garage manager so 
+	 * that the pin code terminal knows 
+	 * which manager to call when a user has 
+	 * pressed a key. */ 
+
+	public void register(BicycleGarageManager manager); 
+
+	/* Turn on LED for lightTime seconds. 
+	 * Colour: 
+	 * colour = RED_LED = 0 => red 
+	 * colour = GREEN_LED = 1 => green */ 
+
+	public void lightLED(int colour, int lightTime); 
+	public static final int RED_LED = 0, 
+	GREEN_LED = 1;
+}
+
+public interface BarcodeReader {     
+	/* Register bicycle garage manager 
+	 * so that the bar code reader knows 
+	 * which manager to call when a user 
+	 * has used the reader. */  
+
+	public void register(BicycleGarageManager manager); 
+}
+
+public interface ElectronicLock {
+	/* Open the lock for timeOpen seconds.  */
+
+	public void open(int timeOpen);
+}
+\end{lstlisting}

@@ -42,7 +42,6 @@ The test process consists of the following phases:
 
 \begin{itemize}
 	\item Unit testing
-	\item Integration testing
 	\item System testing
 	\item Acceptance testing
 \end{itemize}
@@ -55,16 +54,27 @@ The test process consists of the following phases:
 \subsection{Process overview}
 \label{subsec:test-process-process-overview}
 
-The tests of the software are carried out on several levels of abstraction. At
-the lowest level, \textit{unit testing} is performed which aim to test each line
-of code inside the software. These units are grouped into modules, which are
-tested through the API or \textit{Application Programming Interface}, a process
-known as \textit{integration testing}. On an even higher level of abstraction,
-so called \textit{system testing} is performed which ensures that the
-requirements provided in the \textit{Software Requirements Specification} are
-fulfilled. Lastly, \textit{acceptance testing} is performed. However, acceptance
+The tests of the software are carried out on several levels of abstraction:
+
+\begin{itemize}
+\item
+At the lowest level, \textit{unit testing} is performed which aim to test each
+line of code inside the software.
+\item
+These units are grouped into modules, which would
+normally be tested through the API or \textit{Application Programming
+Interface}, a process known as \textit{integration testing}. For this software
+however, integration testing will not be performed due to the smallness of the
+software.
+\item
+On an even higher level of abstraction, so called \textit{system testing} is
+performed which ensures that the requirements provided in the \textit{Software
+Requirements Specification} are fulfilled.
+\item
+Lastly, \textit{acceptance testing} is performed. However, acceptance
 testing is performed by the customer and thus not within the scope of this
 document.
+\end{itemize}
 
 \subsection{Unit testing}
 \label{subsec:test-process-unit-testing}
@@ -75,25 +85,26 @@ is tested in software through the use of a test suite library.
 \begin{description}
 	\item[Performed by:]	Developers
 	\item[Type of test:]	Structural
-	\item[Criteria:]	Every line of code is tested
+	\item[Criteria:]	Every important line of code is tested
 	\item[Stop rule:]	No errors found
 \end{description}
 
 
-\subsection{Integration testing}
-\label{subsec:test-process-integration-testing}
-
-Integration testing is performed in a similar way to unit testing, but larger
-and more inclusive modules are tested. Each module is tested in software through
-the use of a test suite library.
-
-\begin{description}
-	\item[Performed by:]	Developers
-	\item[Type of test:]	Structural
-	\item[Criteria:]	Every API method is tested completely
-	\item[Stop rule:]	No errors found
-\end{description}
-
+%
+%\subsection{Integration testing}
+%\label{subsec:test-process-integration-testing}
+%
+%Integration testing is performed in a similar way to unit testing, but larger
+%and more inclusive modules are tested. Each module is tested in software through
+%the use of a test suite library.
+%
+%\begin{description}
+%	\item[Performed by:]	Developers
+%	\item[Type of test:]	Structural
+%	\item[Criteria:]	Every API method is tested completely
+%	\item[Stop rule:]	No errors found
+%\end{description}
+%
 
 \subsection{System testing}
 \label{subsec:test-process-system-testing}
@@ -140,10 +151,10 @@ code base grows. The results of these tests do not have to be recorded; the
 rationale for this being that the tests provide enough assurance on their own
 and that the size of the test log would soon grow out of hand.
 
-\subsection{Integration testing}
-\label{subsec:test-recording-procedure-integration-testing}
-
-TODO \\
+%
+%\subsection{Integration testing}
+%\label{subsec:test-recording-procedure-integration-testing}
+%
 
 \subsection{System testing}
 \label{subsec:test-recording-procedure-system-testing}
@@ -170,9 +181,9 @@ thus not discussed in this document.
 \subsection{Test cases}
 \label{subsec:test-cases}
 
-Since unit- and integration testing is performed in the software environment and
-acceptance testing is performed by the customer, only system testing will be
-fully described in this document. For this purpose, please refer to
+Since unit testing is performed in the software environment and acceptance
+testing is performed by the customer, only system testing will be fully
+described in this document. For this purpose, please refer to
 \textit{Appendix \ref{app:test-cases}: \nameref{app:test-cases}}.
 
 \subsection{Requirements coverage and traceability}

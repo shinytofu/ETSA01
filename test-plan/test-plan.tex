@@ -319,45 +319,18 @@ matrix} is used. For this matrix, please refer to \textit{Appendix
 \end{usecase}
 
 \begin{usecase}
-	\addtitle{Test case 9:}{Modification of a user's PIN code}
-	\addfield{Primary actor:}{Operator}
-	\addfield{Preconditions:}{The user is registered and there are available
-					PIN codes left.}
-	\addfield{Postconditions:}{The user's PIN code is updated.}
-	\addscenario{Main success scenario:}{
-		\item The operator provides the required user information to the
-			control interface.
-		\item The operator asks the system to generate a new PIN code.
-		\item A PIN code is successfully generated and associated with
-			the user.
-	}
-\end{usecase}
-
-\begin{usecase}
-	\addtitle{Test case 10:}{An invalid PIN code is entered}
-	\addfield{Primary actor:}{User}
-	\addfield{Preconditions:}{The PIN code entered is not associated with
-					any registered user.}
-	\addfield{Postconditions:}{-}
-	\addscenario{Main success scenario:}{
-		\item User enters the PIN code at the PIN code terminal.
-		\item The red LED lamp is lit for 4 seconds. 
-	}
-\end{usecase}
-
-\begin{usecase}
-	\addtitle{Test case 11:}{An invalid barcode is scanned}
+	\addtitle{Test case 9:}{An invalid barcode is scanned}
 	\addfield{Primary actor:}{User or other person}
 	\addfield{Preconditions:}{The barcode is not a part of the system.}
 	\addfield{Postconditions:}{-}
 	\addscenario{Main success scenario:}{
 		\item The invalid barcode is scanned.
-		\item The red LED lamp is lit for 4 seconds. 
+		\item Nothing happens.
 	}
 \end{usecase}
 
 \begin{usecase}
-	\addtitle{Test case 12:}{Creation of a new barcode for an existing
+	\addtitle{Test case 10:}{Creation of a new barcode for an existing
 					bicycle}
 	\addfield{Primary actor:}{Operator}
 	\addfield{Preconditions:}{The user is registered and the subject bicycle
@@ -375,35 +348,45 @@ matrix} is used. For this matrix, please refer to \textit{Appendix
 	}
 \end{usecase}
 
+\begin{usecase}
+	\addtitle{Test case 11:}{Checking in a bicycle}
+	\addfield{Primary actor:}{User}
+	\addfield{Preconditions:}{The user is registered and the subject bicycle
+					is associated with them. The bicycle is
+					tagged as \textit{not checked in}.}
+	\addfield{Postconditions:}{The bicycle is tagged as
+					\textit{checked in}.}
+	\addscenario{Main success scenario:}{
+		\item The user scans the bicycle's barcode at the entrance
+			barcode scanner.
+		\item The bicycle is tagged as \textit{checked in}.
+		\item The entrance door unlocks.
+	}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Test case 11:}{Checking out a bicycle}
+	\addfield{Primary actor:}{User}
+	\addfield{Preconditions:}{The user is registered and the subject bicycle
+					is associated with them. The bicycle is
+					tagged as \textit{checked in}.}
+	\addfield{Postconditions:}{The bicycle is tagged as
+					\textit{checked out}.}
+	\addscenario{Main success scenario:}{
+		\item The user scans the bicycle's barcode at the exit 1 barcode
+			scanner.
+		\item The bicycle is tagged as \textit{checked out}.
+		\item The exit 1 door unlocks.
+	}
+\end{usecase}
+
+
 \newpage
 
 \section{Requirements Coverage Matrix}
 \label{app:RCM}
 
-In the requirements coverage matrices shown below, requirements are shown on the
-vertical axes and test cases on the horizontal axes.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{./assets/rcm-empty.png}
-	\caption{A minimal example of an empty requirements coverage matrix.}
-	\label{fig:rcm-empty}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{./assets/rcm-incomplete.png}
-	\caption{A minimal example of partly filled requirements coverage
-		matrix.}
-	\label{fig:rcm-incomplete}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]{./assets/rcm-filled.png}
-	\caption{A minimal example of a filled requirements coverage matrix.}
-	\label{fig:rcm-filled}
-\end{figure}
+TODO: Add examples.
 
 \end{document}
 

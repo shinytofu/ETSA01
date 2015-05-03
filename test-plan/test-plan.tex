@@ -1,4 +1,4 @@
-\documentclass[12pt,titlepage,bibliography=totoc]{article}
+\documentclass[12pt,titlepage]{article}
 \input{settings}
 
 \begin{document}
@@ -11,10 +11,19 @@
 \setcounter{page}{0}
 \newpage
 
-% ----- REFERENCES -------------------------------------------------------------
+% ----- REFERENCES & -----------------------------------------------------------
+% ----- BIBLIOGRAPHY -----------------------------------------------------------
 
 \section{References}
 \label{sec:references}
+
+\begin{itemize}
+	\item \textit{Examples and Exercises in the Software
+		Engineering Process}. ETSA01 VT 2015. Deparment of Computer
+		Science, Lund University. March 10, 2015.
+	\item \textit{Software Requirements Specification for Bicycle Garage
+		Pro}. ETSA01, Group 33, 2015.
+\end{itemize}
 
 % ----- INTRODUCTION -----------------------------------------------------------
 
@@ -33,7 +42,6 @@ The test process consists of the following phases:
 
 \begin{itemize}
 	\item Unit testing
-	\item Integration testing
 	\item System testing
 	\item Acceptance testing
 \end{itemize}
@@ -46,16 +54,27 @@ The test process consists of the following phases:
 \subsection{Process overview}
 \label{subsec:test-process-process-overview}
 
-The tests of the software are carried out on several levels of abstraction. At
-the lowest level, \textit{unit testing} is performed which aim to test each line
-of code inside the software. These units are grouped into modules, which are
-tested through the API or \textit{Application Programming Interface}, a process
-known as \textit{integration testing}. On an even higher level of abstraction,
-so called \textit{system testing} is performed which ensures that the
-requirements provided in the \textit{Software Requirements Specification} are
-fulfilled. Lastly, \textit{acceptance testing} is performed. However, acceptance
+The tests of the software are carried out on several levels of abstraction:
+
+\begin{itemize}
+\item
+At the lowest level, \textit{unit testing} is performed which aim to test each
+line of code inside the software.
+\item
+These units are grouped into modules, which would
+normally be tested through the API or \textit{Application Programming
+Interface}, a process known as \textit{integration testing}. For this software
+however, integration testing will not be performed due to the smallness of the
+software.
+\item
+On an even higher level of abstraction, so called \textit{system testing} is
+performed which ensures that the requirements provided in the \textit{Software
+Requirements Specification} are fulfilled.
+\item
+Lastly, \textit{acceptance testing} is performed. However, acceptance
 testing is performed by the customer and thus not within the scope of this
 document.
+\end{itemize}
 
 \subsection{Unit testing}
 \label{subsec:test-process-unit-testing}
@@ -66,31 +85,32 @@ is tested in software through the use of a test suite library.
 \begin{description}
 	\item[Performed by:]	Developers
 	\item[Type of test:]	Structural
-	\item[Criteria:]	Every line of code is tested
+	\item[Criteria:]	Every important line of code is tested
 	\item[Stop rule:]	No errors found
 \end{description}
 
 
-\subsection{Integration testing}
-\label{subsec:test-process-integration-testing}
-
-Integration testing is performed in a similar way to unit testing, but larger
-and more inclusive modules are tested. Each module is tested in software through
-the use of a test suite library.
-
-\begin{description}
-	\item[Performed by:]	Developers
-	\item[Type of test:]	Structural
-	\item[Criteria:]	Every API method is tested completely
-	\item[Stop rule:]	No errors found
-\end{description}
-
+%
+%\subsection{Integration testing}
+%\label{subsec:test-process-integration-testing}
+%
+%Integration testing is performed in a similar way to unit testing, but larger
+%and more inclusive modules are tested. Each module is tested in software through
+%the use of a test suite library.
+%
+%\begin{description}
+%	\item[Performed by:]	Developers
+%	\item[Type of test:]	Structural
+%	\item[Criteria:]	Every API method is tested completely
+%	\item[Stop rule:]	No errors found
+%\end{description}
+%
 
 \subsection{System testing}
 \label{subsec:test-process-system-testing}
 
-During system testing, all requirements specified inside the Software
-Requirements Specification are tested.
+During system testing, all requirements specified inside the \textit{Software
+Requirements Specification} are tested.
 
 \begin{description}
 	\item[Performed by:]	Developers
@@ -131,15 +151,20 @@ code base grows. The results of these tests do not have to be recorded; the
 rationale for this being that the tests provide enough assurance on their own
 and that the size of the test log would soon grow out of hand.
 
-\subsection{Integration testing}
-\label{subsec:test-recording-procedure-integration-testing}
-
-TODO
+%
+%\subsection{Integration testing}
+%\label{subsec:test-recording-procedure-integration-testing}
+%
 
 \subsection{System testing}
 \label{subsec:test-recording-procedure-system-testing}
 
-TODO
+For each test session carried out, a new requirements coverage matrix shall be
+produced according to the one shown in \textit{Appendix \ref{app:RCM}:
+Requirements Coverage Matrix}. In a document containing this matrix, the result
+of each test case shall be displayed. Any faults found shall be reported to the
+developers, either directly or through the use of a shared file where error
+reports are logged.
 
 \subsection{Acceptance testing}
 \label{subsec:test-recording-procedure-acceptance-testing}
@@ -156,9 +181,9 @@ thus not discussed in this document.
 \subsection{Test cases}
 \label{subsec:test-cases}
 
-Since unit- and integration testing is performed in the software environment and
-acceptance testing is performed by the customer, only system testing will be
-fully described in this document. For this purpose, please refer to
+Since unit testing is performed in the software environment and acceptance
+testing is performed by the customer, only system testing will be fully
+described in this document. For this purpose, please refer to
 \textit{Appendix \ref{app:test-cases}: \nameref{app:test-cases}}.
 
 \subsection{Requirements coverage and traceability}
@@ -167,14 +192,9 @@ fully described in this document. For this purpose, please refer to
 All functional requirements provided in the \textit{Software Requirements
 Specification} should be tested by at least on test case to ensure that all
 functionality is tested. For this purpose, a \textit{requirements coverage
-matrix} is used.
+matrix} is used. For this matrix, please refer to \textit{Appendix
+\ref{app:RCM}: Requirements Coverage Matrix}.
 
-\bibliography{bibliography}{}
-\bibliographystyle{plain}
-
-
-% TODO: Move appendix to its own file and include it here.
-%\include{appendix}
 
 % ----- APPENDIX ---------------------------------------------------------------
 % ------------- Test Cases -----------------------------------------------------
@@ -355,6 +375,35 @@ matrix} is used.
 	}
 \end{usecase}
 
+\newpage
+
+\section{Requirements Coverage Matrix}
+\label{app:RCM}
+
+In the requirements coverage matrices shown below, requirements are shown on the
+vertical axes and test cases on the horizontal axes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./assets/rcm-empty.png}
+	\caption{A minimal example of an empty requirements coverage matrix.}
+	\label{fig:rcm-empty}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./assets/rcm-incomplete.png}
+	\caption{A minimal example of partly filled requirements coverage
+		matrix.}
+	\label{fig:rcm-incomplete}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{./assets/rcm-filled.png}
+	\caption{A minimal example of a filled requirements coverage matrix.}
+	\label{fig:rcm-filled}
+\end{figure}
 
 \end{document}
 

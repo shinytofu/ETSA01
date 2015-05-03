@@ -240,7 +240,10 @@ matrix} is used. For this matrix, please refer to \textit{Appendix
 		\item The operator provides the required user information to the
 			control interface.
 		\item All bicycles associated with the user are removed from the
-			system.
+			system and each bicycle's unique 5-digit identification
+			number is returned to the pool of available ID's.
+		\item The user's PIN code is returned to the pool of available
+			PIN codes.
 		\item The user is removed from the system.
 	}
 \end{usecase}
@@ -289,7 +292,8 @@ matrix} is used. For this matrix, please refer to \textit{Appendix
 	\addscenario{Main success scenario:}{
 		\item User enters their PIN code at the PIN code terminal.
 		\item The green LED lamp is lit for 4 seconds. Simultaneously,
-			the entrance door opens and stays open for 10 seconds.
+			the entrance door unlocks and stays unlocked for 10
+			seconds.
 	}
 \end{usecase}
 
@@ -360,7 +364,8 @@ matrix} is used. For this matrix, please refer to \textit{Appendix
 		\item The user scans the bicycle's barcode at the entrance
 			barcode scanner.
 		\item The bicycle is tagged as \textit{checked in}.
-		\item The entrance door unlocks.
+		\item The entrance door unlocks and stays unlocked for 10
+			seconds.
 	}
 \end{usecase}
 
@@ -376,7 +381,7 @@ matrix} is used. For this matrix, please refer to \textit{Appendix
 		\item The user scans the bicycle's barcode at the exit 1 barcode
 			scanner.
 		\item The bicycle is tagged as \textit{checked out}.
-		\item The exit 1 door unlocks.
+		\item The exit 1 door unlocks and stays unlocked for 10 seconds.
 	}
 \end{usecase}
 

@@ -11,6 +11,7 @@
 \setcounter{page}{0}
 \newpage
 
+
 % ----- REFERENCES & -----------------------------------------------------------
 % ----- BIBLIOGRAPHY -----------------------------------------------------------
 
@@ -24,6 +25,7 @@
 	\item \textit{Software Requirements Specification for Bicycle Garage
 		Pro}. ETSA01, Group 33, 2015.
 \end{itemize}
+
 
 % ----- INTRODUCTION -----------------------------------------------------------
 
@@ -78,14 +80,12 @@ The budget is limited, and thus more developers or other personnel cannot be
 hired.
 \end{description}
 
+
 % ----- PROJECT ORGANIZATION ---------------------------------------------------
 
 \section{Project Organization}
 
 \subsection{Development organization}
-
-\textit{\textbf{TODO:} This division of tasks was made afterward... Should we
-still keep it?} \\
 
 Responsible for for this project are:
 
@@ -111,14 +111,6 @@ Responsible for for this project are:
 		\begin{itemize}
 			\item Project plan
 		\end{itemize}
-	\item[Emelie Löthman:] \hfill
-		\begin{itemize}
-			\item \ldots
-		\end{itemize}
-	\item[Adam Mrozek:] \hfill
-		\begin{itemize}
-			\item \ldots
-		\end{itemize}
 \end{description}
 
 \subsection{Stakeholders}
@@ -130,6 +122,7 @@ Responsible for for this project are:
 	\item \textbf{ACME} -- The company which manufactures the bicycle
 		garages.
 \end{itemize}
+
 
 % ----- HARDWARE AND SOFTWARE RESOURCES  ---------------------------------------
 
@@ -146,17 +139,16 @@ Responsible for for this project are:
 	\item[Git \& GitHub:] For sharing code and \LaTeX~source text.
 \end{description}
 
+
 % ----- DIVISION OF LABOR ------------------------------------------------------
 
 \section{Division of labor}
-
-\textit{\textbf{TODO:} Same as ''Development organization''?} \\
 
 \subsection{Activities}
 
 \begin{description}
 	\item[Project plan] \hfill \\
-		The planning of the project, also this rapport.
+		The planning of the project; also this rapport.
 	\item[Requirements specifications] \hfill \\
 		The requirements for the project are identified and defined.
 		This results in a requirements specification.
@@ -166,7 +158,8 @@ Responsible for for this project are:
 	\item[Design] \hfill \\
 		A general description of the systems structure.
 		This results in a design document.
-		Different people are responsible for different parts of the code.
+		Different people are responsible for different parts of the
+		code.
 	\item[Implementation and unit testing] \hfill \\
 		Implementation and testing of all parts of the system.
 		This is performed according to the design.
@@ -181,15 +174,25 @@ Responsible for for this project are:
 
 \subsection{Deliverables}
 
-\begin{description}
-	\item[Project plan] \hfill \\
-	\item[Requirements specification] \hfill \\
-	\item[Design document] \hfill \\
-	\item[Test plan] \hfill \\
-	\item[Source code] \hfill \\
-\end{description}
+\begin{itemize}
+	\item Project plan
+	\item Requirements specification
+	\item Design document
+	\item Test plan
+	\item Source code
+	\item Runnable JAR file
+\end{itemize}
 
 \subsection{Schedule and estimated work}
+
+Below is a schedule showing the time estimated for the project's different
+parts. The colors carry no significance.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=1.0\textwidth]{assets/schedule}
+\end{figure}
+
 
 % ----- REPORT, FOLLOW-UP AND QUALITY ASSURANCE --------------------------------
 
@@ -224,18 +227,54 @@ messages on Git shall be clear and provide a third means of communication.
 \section{Risk analysis}
 \label{app:risk-analysis}
 
-\textit{\textbf{TODO:} Add more risk cases.} \\
-
 \begin{usecase}
-	\addtitle{Risk case 1:}{Hardware noncompliance}
-	\addfield{Risk}{Low}
-	\addfield{Effect}{Devastating}
-	\addfield{Measure}{Contact the hardware developers and ask for new
-		hardware specifications}
-	\addfield{Risk indicator}{The appliance does not work properly, even if
+	\addtitle{Risk case 1:}{The hardware does not comply with its
+		specification.}
+	\addfield{Risk:}{Low.}
+	\addfield{Effect:}{Devastating.}
+	\addfield{Measure:}{Contact the hardware developers and ask for new
+		hardware specifications.}
+	\addfield{Risk indicator:}{The appliance does not work properly, even if
 		the virtual testing passed.}
 \end{usecase}
 
+\begin{usecase}
+	\addtitle{Risk case 2:}{Unwanted document modification or deletion}
+	\addfield{Risk:}{Possible}
+	\addfield{Effect:}{Potentially devastating}
+	\addfield{Measure:}{Use a version control system (such as Git).}
+	\addfield{Risk indicator:}{Document metadata contains incorrect dates
+		and/or versions.}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Risk case 3:}{Personnel absence due to diseases or other
+		obstacles.}
+	\addfield{Risk:}{Possible.}
+	\addfield{Effect:}{Moderate or potentially high.}
+	\addfield{Measure:}{Restructure work distribution.}
+	\addfield{Risk indicator:}{Group members stop attending seminars and/or
+		stop responding on the specified communication channel(s).}
+\end{usecase}
+
+\begin{usecase}
+	\addtitle{Risk case 4:}{The client modifies the product requirements.}
+	\addfield{Risk:}{Low.}
+	\addfield{Effect:}{Moderate--depends on how large the modification is.}
+	\addfield{Measure:}{Revise the product plan.}
+	\addfield{Risk indicator:}{-}
+\end{usecase}
+
+
+%% Template for risk cases:
+%	\begin{usecase}
+%		\addtitle{Risk case #:}{}
+%		\addfield{Risk:}{}
+%		\addfield{Effect:}{}
+%		\addfield{Measure:}{}
+%		\addfield{Risk indicator:}{}
+%	\end{usecase}
+%	
 
 \end{document}
 

@@ -33,29 +33,50 @@
 
 \subsection{Purpose}
 
-The projects aim is to develop software for a bicycle garage, which handles
-storage of bicycles. Software will be developed for hardware already specified.
+The aim of the project is to develop software for a bicycle garage which
+provides safe storage of bicycles. The software will be developed for
+prespecified hardware.
 
 \subsection{Goals}
 
 \subsubsection{Product goals}
-The software shall have low deficiency and should handle a high number of users
-with good, and optimized, performance. The product will take care of users
-passing through the entrance with their bicycle - the user will enter a pincode
-and scan a barcode for their bicycle to store it. The user can then exit the
-garage, and to exit with a bicycle the same procedure will be done as the one
-to store it.
+
+The software shall be able to securely handle users checking in and out their
+bicycles of the garage. 
+
+The product will take care of users passing through the entrance with their
+bicycle - the user will enter a PIN code and scan a barcode for their bicycle to
+store it. The user can then exit the garage, and to exit with a bicycle the same
+procedure will be done as the one to store it.
+
+For a more detailed overview of the product, please refer to \textit{Software
+Requirements Specification for Bicycle Garage Pro}.
 
 \subsubsection{Business goals}
-A business wants to offer cheap and reliable bicycle storage to their customers,
-whom may want to protect their bicycle against misfortune.
+
+To offer cheap and reliable bicycle storage to customers, whom may want to
+protect their bicycle against misfortune and use the bicycle instead of public
+transport of their cars.
 
 \subsection{Limitations}
-The project uses specific hardware, which will limit be the limit for security
-and performance if the software is properly optimized and functioning.The date
-for delivery is already specified and thus tests with good coverage needs to be
-implemented. The project has no funding, therefor the manpower available is what
-the project is limited by.
+
+\begin{description}
+\item[Hardware limitations] \hfill \\ 
+Since the software must make use of prespecified hardware, there is a limit set
+by factors other than that of the software's implementation that will decide
+how effective the system will be at doing its job. If there are fundamental
+flaws in the hardware, the software too will suffer. To counter this potential
+issue, thorough testing must be implemented in the software.
+
+\item[Temporal limitations] \hfill \\
+In addition, there is a clear deadline for the project. This may result in an
+unfinished and/or underdeveloped product being released, which may result in
+expensive bugs and a bad reputation should the software fail its customers.
+
+\item[Economical limitations] \hfill \\
+The budget is limited, and thus more developers or other personnel cannot be
+hired.
+\end{description}
 
 % ----- PROJECT ORGANIZATION ---------------------------------------------------
 
@@ -84,6 +105,7 @@ Responsible for for this project are:
 			\item Test plan
 			\item Design document
 			\item Various reviews
+			\item Software development
 		\end{itemize}
 	\item[Petter Berntsson:] \hfill
 		\begin{itemize}
@@ -102,8 +124,11 @@ Responsible for for this project are:
 \subsection{Stakeholders}
 
 \begin{itemize}
-	\item The municipality
-	\item ACME
+	\item \textbf{The municipality} -- For environmental reasons; if an
+		increased number of citizens use their bicycles instead of their
+		cars or public transport, the greenhouse effect can be lessened.
+	\item \textbf{ACME} -- The company which manufactures the bicycle
+		garages.
 \end{itemize}
 
 % ----- HARDWARE AND SOFTWARE RESOURCES  ---------------------------------------
@@ -117,8 +142,8 @@ Responsible for for this project are:
 	\item[Eclipse:] Integrated desktop environment for software development.
 	\item[The Java Programming Language:] The programming language used to
 		create the software.
-	\item[Google Drive:] Cloud storage reachable for all members to edit
-	\item[Git \& GitHub:] For sharing code and \LaTeX~source text
+	\item[Google Drive:] Cloud storage reachable for all members to edit.
+	\item[Git \& GitHub:] For sharing code and \LaTeX~source text.
 \end{description}
 
 % ----- DIVISION OF LABOR ------------------------------------------------------
@@ -164,62 +189,53 @@ Responsible for for this project are:
 	\item[Source code] \hfill \\
 \end{description}
 
-\subsection{Landmarks}
-
-???
-
 \subsection{Schedule and estimated work}
 
 % ----- REPORT, FOLLOW-UP AND QUALITY ASSURANCE --------------------------------
 
 \section{Report, follow-up and quality assurance}
 
-% TODO: Translate!
+To make collaboration easy when writing both the software and the project
+related documents, the version control system \textit{Git} will be used, with
+the files hosted on the free Git hosting platform \textit{GitHub}. In addition,
+both internal and external reviews will be conducted in a common \textit{Google
+Drive} folder, using the \textit{Google Docs} service.
 
-%För att alla alltid ska ha tillgång till den senaste versionen av källkoden så
-%använder vi oss av google code och subversion används som
-%versionshanteringssystem. Det finns en Wiki att tillgå, för information som inte
-%direkt ingår i projektet. Latex källfiler hanteras på samma sätt som källkoden.
-%På projektets googlesida finns möjlighet att buggrapportera, detta kommer att
-%användas för både källkod och dokumentfiler. I första hand är det
-%dokumentansvarige som ska rätta till felet. Man kan också se vem som har ändrat
-%vad och vid vilken tidpunkt ändringen har skett. Det går även att gå tillbaka
-%till äldre versioner. Färdiga dokument laddas upp i pdf-format under Downloads.
-%
-%Varje onsdag har vi ett planerat veckomöte. Syftet med mötet är att gå igenom
-%vad som har gjorts under föregående vecka och planera inför kommande vecka
-%utifrån tidsplanen. Projektledaren är ordförande under dessa möten och håller i
-%dagordningen. Färdiga dokument godkänns även under mötet.
-%
-%Då projektet är litet är det inga problem att kommunicera med e-mail och
-%telefon. Dessutom träffas projektmedelmmarna dagligen.
-%
-%Samtliga dokument ska kontrolläsas av alla projektdeltagare och godkännas, det
-%slutliga godkännandets utförs av den som har ansvaret för dokumentet.
-%
-%Det kommer ske en inspektion av projekthandledaren vid varje inlämning som finns
-%ovan i kapitel 6.4.
+All PDF versions of the documents will be found in the Google Drive folder when
+they need to be there. The latest versions shall always be available on GitHub.
 
-% ----- RISK ANALYSIS ----------------------------------------------------------
+During the seminar sessions provided, the group will gather and discuss further
+plans for the project, as well as meet with the tutor who will provide feedback
+on the documents handed in through the Google Drive folder.
 
-\section{Risk analysis}
+Communication within the group will be conducted through a social media platform
+previously agreed on, or through email if necessary. The reason for primarily
+using a social media platform for this purpose is that communication is faster
+and more interactive than if one were to solely use emails. Additionally, commit
+messages on Git shall be clear and provide a third means of communication.
 
-\textit{\textbf{TODO:} Add more risk cases.} \\
-
-Hardware noncompliance
-Risk; Low
-Effect; Devastating
-How do we fix it? Contact the hardware developers and ask for new hardware specifications
-Riskindicators; The appliance does not work properly, even if the virtual testing passed.
 
 % ----- APPENDIX ---------------------------------------------------------------
-% ------------- Test Cases -----------------------------------------------------
+% ----- RISK ANALYSIS ----------------------------------------------------------
 
 \newpage
 \appendix
 
-\section{TODO: Any appendices?}
-\label{app:TODO}
+\section{Risk analysis}
+\label{app:risk-analysis}
+
+\textit{\textbf{TODO:} Add more risk cases.} \\
+
+\begin{usecase}
+	\addtitle{Risk case 1:}{Hardware noncompliance}
+	\addfield{Risk}{Low}
+	\addfield{Effect}{Devastating}
+	\addfield{Measure}{Contact the hardware developers and ask for new
+		hardware specifications}
+	\addfield{Risk indicator}{The appliance does not work properly, even if
+		the virtual testing passed.}
+\end{usecase}
+
 
 \end{document}
 

@@ -21,8 +21,9 @@
 	\item \textit{Examples and Exercises in the Software
 		Engineering Process}. ETSA01 VT 2015. Deparment of Computer
 		Science, Lund University. March 10, 2015.
-	\item \textit{Software Requirements Specification for Bicycle Garage
+	\item \textit{Requirements Specification for Bicycle Garage
 		Pro}. ETSA01, Group 33, 2015.
+	\item \textit{Test Plan for Bicycle Garage Pro}. ETSA01, Group 33, 2015.
 \end{itemize}
 
 % ----- INTRODUCTION -----------------------------------------------------------
@@ -41,54 +42,19 @@ a guideline during development.
 
 \subsection{Glossary}
 \label{subsec:introduction-glossary}
-
-TODO: Section incomplete. \\
-
-\begin{enumerate}
-	\item General terms
-	\begin{enumerate}
-		\item BGP - Bicycle Garage Pro (software)
-		\item User - A cyclist who uses the BGP system
-		\item Operator - Subject responsible for managing BGP (on-site)
-	\end{enumerate}
-	\item Software-related terms
-	\begin{enumerate}
-		\item JAR -- Java Archive
-		\item JVM -- Java Virtual Machine
-		\item TODO: Add more
-	\end{enumerate}
-\end{enumerate}
-
-\subsection{Typographical conventions}
-\label{subsec:introduction-typographical-conventions}
-
-The following typographical conventions are used in this document:
-
-\begin{description}[font=\normalfont]
-	\item[\textit{Italic}] \hfill \\
-		Indicates URLs, section references, and various kinds of titles.
-		Also used for emphasis.
-	\item[\texttt{Constant width}] \hfill \\
-		Used when listing program code, as well as within paragraphs to
-		denote code elements such as classes, variables, data types,
-		statements, keywords, et cetera.
-\end{description}
+See section 1.2 in the Requirement Specification for Bicycle Garage Pro
 
 \subsection{Scope}
 \label{subsec:introduction-scope}
 
-TODO: Fix references. \\
-
 This document is intented to be read in combination with the project's
-\textit{Software Requirements Specification} and \textit{Test plan}, both
+\textit{Requirements Specification} and \textit{Test plan}, both
 referred to in \textit{section \ref{sec:references}: \nameref{sec:references}}.
 
 
 % ----- ARCHITECTURAL OVERVIEW -------------------------------------------------
 
 \section{Software design overview}
-
-TODO: Provide a high-level overview of the entire document; a kind of summary.\\
 
 The entire software shall be able to be packaged into a JAR file to be run on a
 JVM installed on the main computer in the BGP system. Therefore, the software
@@ -98,17 +64,10 @@ the rationale for this being that Java is an easily accessible and widely known
 language. The software thus becomes easy to distribute among BGP systems across
 the world.
 
-\section{Architectural overview}
-\label{sec:architectural-overview}
-
-TODO: Describe the system on a high level, i.e. the connection between the
-operator interface, the database, and the categories of classes.
-
-\section{Detailed system description}
+\subsection{Detailed system description}
 \label{sec:detailed-system-description}
 
-TODO: Describe the scope and purpose of each class, its data, and its relation
-to other classes. Refer to one or more UML diagrams in an appendix.
+See \cref{fig:lol} under \cref{app:example-appendix-section} for the UML diagram that describes the relations between the internal software classes.
 
 \subsection{Modules or Java \texttt{package}s}
 
@@ -126,27 +85,24 @@ Below are the classes found in \texttt{package bicyclegarage}.
 	\item [\texttt{User}]		\hfill \\
 		Describes a cyclist using the BGP system.
 
+	\item [\texttt{UserDB}]		\hfill \\
+		Mainly handles database saving/loading
+
 	\item [\texttt{Garage}]		\hfill \\
-		...
+		Ties classes together. Contains the GUI.
 
 	\item [\texttt{Manager}]	\hfill \\
-		...
+		Mainly implements the methods needed to make the garage work
 
-	\item [\texttt{Logger}]		\hfill \\
-		A simple logger used to keep an audit log.
 \end{description}
 
 % May be useful somewhere, so keep it here, but commented out:
 %\rule{\textwidth}{1pt}
 
-\subsubsection{\texttt{tests}}
 \subsubsection{\texttt{interfaces}}
+Contains the hardware interfaces. Not within this project scope, but still mentioned for convinience sake.
 \subsubsection{\texttt{testdrivers}}
-
-\section{(Data design)}
-\label{sec:data-design}
-
-TODO: Describe and motivate the use of the chosen data structures...
+Hardware implementations. Not within this project scope, but still mentioned for convinience sake.
 
 
 % ----- APPENDIX ---------------------------------------------------------------
@@ -154,10 +110,13 @@ TODO: Describe and motivate the use of the chosen data structures...
 \newpage
 \appendix
 
-\section{Example appendix section}
+\section{UML diagram}
 \label{app:example-appendix-section}
-
-TODO: An UML diagram could be found here, if needed.
-
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{BGP.png}
+\caption{UML diagram for Bicycle Garage Pro (zoomable)}
+\label{fig:lol}
+\end{figure}
 \end{document}
 

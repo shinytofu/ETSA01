@@ -1,0 +1,225 @@
+\documentclass[12pt,titlepage]{article}
+\input{settings}
+
+\begin{document}
+\include{cover}
+
+\maketitle
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\setcounter{page}{0}
+\newpage
+
+% ----- REFERENCES & -----------------------------------------------------------
+% ----- BIBLIOGRAPHY -----------------------------------------------------------
+
+\section{References}
+\label{sec:references}
+
+\begin{itemize}
+	\item \textit{Examples and Exercises in the Software
+		Engineering Process}. ETSA01 VT 2015. Deparment of Computer
+		Science, Lund University. March 10, 2015.
+	\item \textit{Software Requirements Specification for Bicycle Garage
+		Pro}. ETSA01, Group 33, 2015.
+\end{itemize}
+
+% ----- INTRODUCTION -----------------------------------------------------------
+
+\section{Introduction}
+
+\subsection{Project model}
+
+\subsection{Purpose}
+
+The projects aim is to develop software for a bicycle garage, which handles
+storage of bicycles. Software will be developed for hardware already specified.
+
+\subsection{Goals}
+
+\subsubsection{Product goals}
+The software shall have low deficiency and should handle a high number of users
+with good, and optimized, performance. The product will take care of users
+passing through the entrance with their bicycle - the user will enter a pincode
+and scan a barcode for their bicycle to store it. The user can then exit the
+garage, and to exit with a bicycle the same procedure will be done as the one
+to store it.
+
+\subsubsection{Business goals}
+A business wants to offer cheap and reliable bicycle storage to their customers,
+whom may want to protect their bicycle against misfortune.
+
+\subsection{Limitations}
+The project uses specific hardware, which will limit be the limit for security
+and performance if the software is properly optimized and functioning.The date
+for delivery is already specified and thus tests with good coverage needs to be
+implemented. The project has no funding, therefor the manpower available is what
+the project is limited by.
+
+% ----- PROJECT ORGANIZATION ---------------------------------------------------
+
+\section{Project Organization}
+
+\subsection{Development organization}
+
+\textit{\textbf{TODO:} This division of tasks was made afterward... Should we
+still keep it?} \\
+
+Responsible for for this project are:
+
+\begin{description}
+	\item[Alexander Skafte:] \hfill
+		\begin{itemize}
+			\item Requirements specification
+			\item Test plan
+			\item Design document
+			\item Project plan
+			\item Various reviews
+			\item Software development
+		\end{itemize}
+	\item[Dennis Jin:] \hfill
+		\begin{itemize}
+			\item Requirements specification
+			\item Test plan
+			\item Design document
+			\item Various reviews
+		\end{itemize}
+	\item[Petter Berntsson:] \hfill
+		\begin{itemize}
+			\item Project plan
+		\end{itemize}
+	\item[Emelie Löthman:] \hfill
+		\begin{itemize}
+			\item \ldots
+		\end{itemize}
+	\item[Adam Mrozek:] \hfill
+		\begin{itemize}
+			\item \ldots
+		\end{itemize}
+\end{description}
+
+\subsection{Stakeholders}
+
+\begin{itemize}
+	\item The municipality
+	\item ACME
+\end{itemize}
+
+% ----- HARDWARE AND SOFTWARE RESOURCES  ---------------------------------------
+
+\section{Hardware and software resources}
+\label{sec:hardware-and-software-resources}
+
+\begin{description}
+	\item[\LaTeX:] Typesetting software; used to typeset all documents
+		related to the development of \textit{Bicycle Garage Pro}.
+	\item[Eclipse:] Integrated desktop environment for software development.
+	\item[The Java Programming Language:] The programming language used to
+		create the software.
+	\item[Google Drive:] Cloud storage reachable for all members to edit
+	\item[Git \& GitHub:] For sharing code and \LaTeX~source text
+\end{description}
+
+% ----- DIVISION OF LABOR ------------------------------------------------------
+
+\section{Division of labor}
+
+\textit{\textbf{TODO:} Same as ''Development organization''?} \\
+
+\subsection{Activities}
+
+\begin{description}
+	\item[Project plan] \hfill \\
+		The planning of the project, also this rapport.
+	\item[Requirements specifications] \hfill \\
+		The requirements for the project are identified and defined.
+		This results in a requirements specification.
+	\item[Test plan] \hfill \\
+		The planning of all tests that will be performed.
+		This results in a test plan.
+	\item[Design] \hfill \\
+		A general description of the systems structure.
+		This results in a design document.
+		Different people are responsible for different parts of the code.
+	\item[Implementation and unit testing] \hfill \\
+		Implementation and testing of all parts of the system.
+		This is performed according to the design.
+	\item[Integration] \hfill \\
+		This part is the finishing part of the program,
+		which leads to a fully functioning program.
+	\item[System test] \hfill \\
+		The system is tested in its entirety. This takes part in a
+		testing environment which mimics the environment that the
+		program will be used in.
+\end{description}
+
+\subsection{Deliverables}
+
+\begin{description}
+	\item[Project plan] \hfill \\
+	\item[Requirements specification] \hfill \\
+	\item[Design document] \hfill \\
+	\item[Test plan] \hfill \\
+	\item[Source code] \hfill \\
+\end{description}
+
+\subsection{Landmarks}
+
+???
+
+\subsection{Schedule and estimated work}
+
+% ----- REPORT, FOLLOW-UP AND QUALITY ASSURANCE --------------------------------
+
+\section{Report, follow-up and quality assurance}
+
+% TODO: Translate!
+
+%För att alla alltid ska ha tillgång till den senaste versionen av källkoden så
+%använder vi oss av google code och subversion används som
+%versionshanteringssystem. Det finns en Wiki att tillgå, för information som inte
+%direkt ingår i projektet. Latex källfiler hanteras på samma sätt som källkoden.
+%På projektets googlesida finns möjlighet att buggrapportera, detta kommer att
+%användas för både källkod och dokumentfiler. I första hand är det
+%dokumentansvarige som ska rätta till felet. Man kan också se vem som har ändrat
+%vad och vid vilken tidpunkt ändringen har skett. Det går även att gå tillbaka
+%till äldre versioner. Färdiga dokument laddas upp i pdf-format under Downloads.
+%
+%Varje onsdag har vi ett planerat veckomöte. Syftet med mötet är att gå igenom
+%vad som har gjorts under föregående vecka och planera inför kommande vecka
+%utifrån tidsplanen. Projektledaren är ordförande under dessa möten och håller i
+%dagordningen. Färdiga dokument godkänns även under mötet.
+%
+%Då projektet är litet är det inga problem att kommunicera med e-mail och
+%telefon. Dessutom träffas projektmedelmmarna dagligen.
+%
+%Samtliga dokument ska kontrolläsas av alla projektdeltagare och godkännas, det
+%slutliga godkännandets utförs av den som har ansvaret för dokumentet.
+%
+%Det kommer ske en inspektion av projekthandledaren vid varje inlämning som finns
+%ovan i kapitel 6.4.
+
+% ----- RISK ANALYSIS ----------------------------------------------------------
+
+\section{Risk analysis}
+
+\textit{\textbf{TODO:} Add more risk cases.} \\
+
+Hardware noncompliance
+Risk; Low
+Effect; Devastating
+How do we fix it? Contact the hardware developers and ask for new hardware specifications
+Riskindicators; The appliance does not work properly, even if the virtual testing passed.
+
+% ----- APPENDIX ---------------------------------------------------------------
+% ------------- Test Cases -----------------------------------------------------
+
+\newpage
+\appendix
+
+\section{TODO: Any appendices?}
+\label{app:TODO}
+
+\end{document}
+

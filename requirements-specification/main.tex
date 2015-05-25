@@ -34,7 +34,7 @@ Despite this being a software-only specification, relevant hardware-related term
 	\item Software-related terms
 	\begin{enumerate}
 		\item (The) System - Bicycle Garage Pro software
-		\item GUI - Graphical user interface
+		\item CLI - Command line interface
 		\item CRUD - Create, read, update and delete (operations)
 		\item PIN - 4-digit code, used to access the garage
 		\item API - Application programming interface
@@ -247,6 +247,7 @@ The use cases below are the most typical scenarios that one would run into when 
 	\item The system shall store bicycle data in a database.
 	\item The system shall be able to add bicycles to the database.
 	\item The system shall be able to remove bicycles from the database.
+	\item The system shall be able to search for a bicycle in the database.
 	\item The system shall not be able to add bicycles once all unique Bicycle IDs are in use.
 	\item The system shall not allow more than 500 checked in bicycles, in the garage, at a time.
 	\item When bicycles are removed from the database, the system shall be able to reuse the bicycle ID.
@@ -268,7 +269,7 @@ The use cases below are the most typical scenarios that one would run into when 
 \end{enumerate}
 \subsubsection{Miscellaneous}
 \begin{enumerate}
-	\item The system shall provide a relevant graphical interface needed for an operator to manage the system. See use cases, where the operator is the primary actor, in \cref{sec:cases} for relevant scenarios.
+	\item The system shall provide a relevant user interface needed for an operator to manage the system. See use cases, where the operator is the primary actor, in \cref{sec:cases} for relevant scenarios.
 	\item If the delay between two user input signals from the PIN terminal exceeds 5 seconds, the system shall reset the PIN terminal.
 \end{enumerate}
 \subsection{Quality requirements}
